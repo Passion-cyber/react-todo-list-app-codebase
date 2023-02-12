@@ -1,38 +1,162 @@
-.App {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(
+    90deg,
+    rgba(32, 33, 41) 0%,
+    rgba(42, 43, 49) 100%
+  );
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.todo-app {
+  position: relative;
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255) 100%,
+    rgba(233, 48, 125) 0%
+  );
+  width: 520px;
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+  border-radius: 10px;
+  height: 90vh;
+  margin: auto;
+}
+
+h1 {
+  font-size: 25px;
+  color: #fff;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.todo-form {
+  margin: 20px auto;
+  /* border: 1px solid red; */
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.todo-input {
+  padding: 14px 32px 14px 16px;
+  width: 328px;
+  border-radius: 0px 10px 0px 10px;
+  border: 2px solid #e6e6fa;
+  background: transparent;
+  margin-right: 10px;
+  outline: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo-btn {
+  cursor: pointer;
+  padding: 14px;
+  background-color: #e6e6fa;
+  border: 1px solid #e6e6fa;
+  border-radius: 0px 10px 0px 10px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.todo-btn:hover {
+  opacity: 0.8;
+}
+
+.individual-todos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px auto;
+  color: #fff;
+  background-color: #e6e6fa;
+  padding: 14px;
+  border-radius: 0px 10px 0px 10px;
+  width: 425px;
+}
+.completed {
+  text-decoration: line-through;
+  color: rgb(156, 153, 153);
+}
+
+.radio-btn,
+.close-btn {
+  cursor: pointer;
+  font-size: 20px;
+}
+.radio-btn{
+  color: rgb(215, 215, 39);
+}
+.radio-btn.active{
+  color: rgb(70, 132, 70);
+}
+.close-btn:hover{
+  color: red;
+}
+
+.widget {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #272525, #fff);
+  color: #fff;
+  box-shadow: 0 0 2px gainsboro;
+  overflow: hidden;
+}
+.list-wrap {
+  height: calc(100vh - (210px + 48px));
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  overflow-y: auto;
+  max-height: calc(600px - 200px);
+}
+.list-wrap::-webkit-scrollbar {
+  display: none;
+}
+.sort {
+  width: 33.33%;
+  height: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.sort > button {
+  height: 100%;
+  width: 100%;
+  background: none;
+  outline: 0;
+  border: none;
+}
+
+.sort.active {
+  background: #e6e6fa;
+  transition: all 0.3s ease-in-out;
+}
+.text-center{
+  height: fit-content;
+  width: 100%;
+  margin: auto 0;
+  text-align: center;
+  font-size: clamp(1rem, 5vw, 6rem);
+  font-weight: clamp(500, 5vw, 700);
+  white-space: wrap;
+
 }
